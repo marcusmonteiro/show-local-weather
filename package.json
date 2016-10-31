@@ -1,0 +1,48 @@
+{
+  "name": "show-local-weather",
+  "version": "0.1.0",
+  "description": "Show the local weather project from FreeCodeCamp",
+  "keywords": [
+    "weather",
+    "geolocation",
+    "openweather",
+    "openweatherapi",
+    "FreeCodeCamp",
+    "frontend"
+  ],
+  "homepage": "",
+  "bugs": {
+    "url": "",
+    "email": "mvsouza007@gmail.com"
+  },
+  "author": {
+    "name": "Marcus Vinicius Monteiro de Souza",
+    "email": "mvsouza007@gmail.com",
+    "url": "https://marcusmonteiro.github.io/"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marcusmonteiro/random-quote-machine.git"
+  },
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "0.7.0",
+    "snazzy": "^5.0.0",
+    "standard": "^8.5.0"
+  },
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "lint:js": "standard --verbose --fix | snazzy",
+    "lint": "npm run lint:js",
+    "test:unit": "react-scripts test --env=jsdom",
+    "test": "npm run lint && npm run test:unit",
+    "eject": "react-scripts eject"
+  }
+}
