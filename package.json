@@ -10,9 +10,9 @@
     "FreeCodeCamp",
     "frontend"
   ],
-  "homepage": "",
+  "homepage": "https://github.com/marcusmonteiro/show-local-weather",
   "bugs": {
-    "url": "",
+    "url": "https://github.com/marcusmonteiro/show-local-weather/issues",
     "email": "mvsouza007@gmail.com"
   },
   "author": {
@@ -23,26 +23,37 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/marcusmonteiro/random-quote-machine.git"
+    "url": "https://github.com/marcusmonteiro/show-local-weather.git"
   },
   "private": true,
   "devDependencies": {
     "react-scripts": "0.7.0",
     "snazzy": "^5.0.0",
-    "standard": "^8.5.0"
+    "standard": "^8.5.0",
+    "stylelint": "^7.5.0",
+    "stylelint-config-standard": "^14.0.0"
   },
   "dependencies": {
+    "bootstrap": "^3.3.7",
+    "degrees-to-direction": "^1.1.1",
+    "font-awesome": "^4.7.0",
     "jquery": "^3.1.1",
     "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "react-bootstrap": "^0.30.6",
+    "react-dom": "^15.3.2",
+    "sanitize.css": "^4.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "lint:js": "standard --verbose --fix | snazzy",
-    "lint": "npm run lint:js",
+    "lint:css": "stylelint src/**/*.css",
+    "lint": "npm run lint:js && npm run lint:css",
     "test:unit": "react-scripts test --env=jsdom",
     "test": "npm run lint && npm run test:unit",
     "eject": "react-scripts eject"
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard"
   }
 }

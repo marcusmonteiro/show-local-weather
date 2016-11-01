@@ -1,0 +1,9 @@
+.show-local-weather {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.show-local-weather-center {
+  max-width: 50%;
+}
