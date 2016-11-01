@@ -23,7 +23,6 @@ export default class ShowLocalWeatherContainer extends Component {
       const apiUri = `http://api.openweathermap.org/data/2.5/weather?units=metric&lat=${lat}&lon=${lon}&appid=${API_KEY}`
       $.getJSON(apiUri)
         .done((data) => {
-          console.log(data)
           const localWeather = {
             location: data.name,
             description: data.weather[0].description,
