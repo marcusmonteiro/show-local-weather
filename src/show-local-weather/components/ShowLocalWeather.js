@@ -5,6 +5,22 @@ import { Grid, Row, Col, Image } from 'react-bootstrap'
 import s from './styles.css'
 
 export default function ShowLocalWeather ({localWeather}) {
+  let tempUnit
+  let windSpeedUnit
+
+  switch (localWeather.unitSystem) {
+    case 'metric':
+      tempUnit = <strong>&deg;C</strong>
+      windSpeedUnit = <strong>m/s</strong>
+      break
+    case 'imperial':
+      tempUnit = <strong>&deg;F</strong>
+      windSpeedUnit = <strong>mph/h</strong>
+      break
+    default:
+      throw Error(`Invalid unit system: ${localWeather.unitSystem}`)
+  }
+
   let Humidity
   let Temp
   let Wind
@@ -20,7 +36,7 @@ export default function ShowLocalWeather ({localWeather}) {
   if (localWeather.temp) {
     Temp = (
       <Row>
-        <Col><p><i className='fa fa-thermometer-full' aria-hidden='true'></i> Temperature: {localWeather.temp}<strong>&deg;C</strong></p></Col>
+        <Col><p><i className='fa fa-thermometer-full' aria-hidden='true'></i> Temperature: {localWeather.temp}{tempUnit}</p></Col>
       </Row>
     )
   }
@@ -29,7 +45,7 @@ export default function ShowLocalWeather ({localWeather}) {
     Wind = (
       <div>
         <Row>
-          <Col><p><i className='fa fa-leaf' aria-hidden='true'></i> Wind speed: {localWeather.wind_speed}<strong>m/s</strong></p></Col>
+          <Col><p><i className='fa fa-leaf' aria-hidden='true'></i> Wind speed: {localWeather.wind_speed}{windSpeedUnit}</p></Col>
         </Row>
         <Row>
           <Col><p><i className='fa fa-arrows' aria-hidden='true'></i> Wind direction: <strong>{degreesToDirection(localWeather.wind_degrees)}</strong></p></Col>
@@ -62,6 +78,7 @@ export default function ShowLocalWeather ({localWeather}) {
 
 ShowLocalWeather.propTypes = {
   localWeather: React.PropTypes.shape({
+    unitSystem: React.PropTypes.string.isRequired,
     location: React.PropTypes.string.isRequired,
     description: React.PropTypes.string.isRequired,
     icon: React.PropTypes.string.isRequired,
